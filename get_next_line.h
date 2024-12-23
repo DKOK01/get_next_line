@@ -6,7 +6,13 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:32:00 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/23 09:32:01 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/23 10:09:11 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+char	*get_next_line(int fd);
+
+#endif
