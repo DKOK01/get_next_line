@@ -6,14 +6,14 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:32:00 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/26 13:35:36 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/27 16:26:48 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define BUFFER_SIZE 50
+# define BUFFER_SIZE 11
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>

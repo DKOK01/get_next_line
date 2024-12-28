@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:30:04 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/26 14:20:15 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/28 09:38:04 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,34 @@
 
 char *get_next_line(int fd)
 {
-	char *buffer;
+	static char *buffer;
 	int size_read;
 	int	i;
+	char *line;
 
-	buffer = malloc(BUFFER_SIZE + 1);
-	size_read = read(fd, buffer, BUFFER_SIZE);
-	if (size_read == -1)
-		return (NULL);
 	i = 0;
-	buffer[size_read] = '\0';
-	while(buffer[i] != '\n' && buffer[i] != '\0')
-		i++;
-	return (ft_substr(buffer, 0, i));
+	buffer = malloc(BUFFER_SIZE + 1);
+	while (1)
+	{
+		size_read = read(fd, buffer, BUFFER_SIZE);
+		if (size_read == -1)
+			return (NULL);
+		buffer[size_read + 1] = '\0';
+		while(buffer[i] != '\n' && buffer[i] != '\0')
+			i++;
+		
+
+
+
+
+	}
+
+}
+void	call_get(int	fd)
+{
+	char *line;
+	printf("%s", line = get_next_line(fd));
+	free(line);
 }
 
 int main()
@@ -39,14 +54,22 @@ int main()
 		perror("Error opening file");
 		return 1;
 	}
-	char *line = get_next_line(fd);
-	printf("%s\n", line);
-	free(line);
 
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	free(line);
-	
+	call_get(fd);
+	//call_get(fd);
+
+
+
+
+
+
+	// char *line;
+	// printf("%s", line = get_next_line(fd));
+	// free(line);
+
+	// printf("%s", line = get_next_line(fd));
+	// free(line);
+
 	close(fd);
 	return 0;
 }
