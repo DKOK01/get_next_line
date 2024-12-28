@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:30:04 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/28 13:09:55 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/28 15:56:40 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,21 +85,22 @@ char *get_next_line(int fd)
 	buffer = cut_buffer(buffer);
 	return (line);
 }
-
 int main()
 {
-	int	fd;
-	fd = open("text.txt", O_RDONLY);
+	int fd = open("text.txt", O_RDONLY);
+	char *line;
 
 	if (fd == -1)
-	{
+    {
 		perror("Error opening file");
 		return 1;
 	}
 
-	char *line;
-	printf("%s", line = get_next_line(fd));
-	free(line);
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
 
 	close(fd);
 	return 0;
