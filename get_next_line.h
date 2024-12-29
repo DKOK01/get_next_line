@@ -6,16 +6,16 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:32:00 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/29 17:30:20 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/29 17:35:44 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>

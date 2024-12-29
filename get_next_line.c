@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:30:04 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/29 17:06:04 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/29 17:34:35 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ char	*cut_buffer(char *buffer)
 	return (new_buffer);
 }
 
-char	*read_to_buffer(int fd,char *buffer)
+char	*read_to_buffer(int fd, char *buffer)
 {
 	char	*temp;
-	int size_read;
+	int		size_read;
 
 	temp = malloc(BUFFER_SIZE + 1);
 	if (!temp)
@@ -85,6 +85,7 @@ char	*read_to_buffer(int fd,char *buffer)
 		return (free(buffer), NULL);
 	return (buffer);
 }
+
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
