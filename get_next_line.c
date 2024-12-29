@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:30:04 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/29 08:52:30 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/29 17:06:04 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*cut_buffer(char *buffer)
 	}
 	new_buffer = malloc(ft_strlen(buffer) - i + 1);
 	if (!new_buffer)
-		return (NULL);
+		return (free(buffer), NULL);
 	i++;
 	while (buffer[i])
 		new_buffer[j++] = buffer[i++];
@@ -63,16 +63,13 @@ char	*cut_buffer(char *buffer)
 	return (new_buffer);
 }
 
-char	*get_next_line(int fd)
+char	*read_to_buffer(int fd,char *buffer)
 {
-	static char	*buffer;
-	int			size_read;
-	char		temp[BUFFER_SIZE + 1];
-	char		*line;
+	char	*temp;
+	int size_read;
 
-	if (!buffer)
-		buffer = ft_strdup("");
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	temp = malloc(BUFFER_SIZE + 1);
+	if (!temp)
 		return (NULL);
 	size_read = read(fd, temp, BUFFER_SIZE);
 	while (size_read > 0)
@@ -82,6 +79,27 @@ char	*get_next_line(int fd)
 		if (ft_strchr(buffer, '\n'))
 			break ;
 		size_read = read(fd, temp, BUFFER_SIZE);
+	}
+	free(temp);
+	if (size_read < 0)
+		return (free(buffer), NULL);
+	return (buffer);
+}
+char	*get_next_line(int fd)
+{
+	static char	*buffer;
+	char		*line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (!buffer)
+		buffer = ft_strdup("");
+	buffer = read_to_buffer(fd, buffer);
+	if (!buffer || buffer[0] == '\0')
+	{
+		free(buffer);
+		buffer = NULL;
+		return (NULL);
 	}
 	line = extract_line(buffer);
 	buffer = cut_buffer(buffer);

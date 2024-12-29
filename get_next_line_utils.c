@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:31:19 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/29 08:50:32 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/29 17:00:14 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	len = ft_strlen(s);
 	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 	while (s[i] != '\0')
 	{
@@ -70,7 +70,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	size_t	i;
@@ -91,6 +91,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[i])
 		str[j++] = s2[i++];
 	str[j] = 0;
+	free(s1);
 	return (str);
 }
 

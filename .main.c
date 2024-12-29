@@ -22,6 +22,6 @@ int main()
         printf("LINE: %s", line); // Each line will be printed with '\n' included
         free(line);
     }
-    close(fd);
+	close(fd);
     return 0;
 }
