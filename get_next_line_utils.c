@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:31:19 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/28 12:56:19 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/29 08:50:32 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len;
@@ -92,13 +93,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[j] = 0;
 	return (str);
 }
+
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
 
 	i = 0;
 	if (!s)
-		return(NULL);
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (unsigned char)c)
