@@ -6,7 +6,7 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:32:00 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/30 09:01:36 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/31 09:06:56 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
 # endif
+# define MAX_FD 1024
 # include <unistd.h>
-# include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);

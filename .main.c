@@ -17,27 +17,27 @@ int main()
         return 1;
     }
     printf("Test Case 1: Reading from text.txt\n");
-    // while ((line = get_next_line(fd)) != NULL)
-    // {
-    //     printf("LINE: %s", line);
-    //     free(line);
-    // }
-	line = get_next_line(fd);
-	printf("LINE: %s", line);
-    free(line);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("LINE: %s", line);
+        free(line);
+    }
+	// line = get_next_line(fd);
+	// printf("LINE: %s", line);
+    // free(line);
 
-	line = get_next_line(42);
-	printf("LINE: %s", line);
-    free(line);
+	// line = get_next_line(42);
+	// printf("LINE: %s", line);
+    // free(line);
 
-	line = get_next_line(fd);
-	printf("LINE: %s", line);
-    free(line);
+	// line = get_next_line(fd);
+	// printf("LINE: %s", line);
+    // free(line);
 
-	line = get_next_line(42);
-	printf("LINE: %s", line);
-    free(line);
+	// line = get_next_line(42);
+	// printf("LINE: %s", line);
+    // free(line);
+
 	close(fd);
-
     return 0;
 }
