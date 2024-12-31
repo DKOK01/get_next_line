@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:30:04 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/31 11:18:46 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/31 11:31:24 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*extract_line(char *buffer)
 {
@@ -88,21 +88,21 @@ char	*read_to_buffer(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffers[MAX_FD];
+	static char	*buffer;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= 2147483647 || fd >= MAX_FD)
 		return (NULL);
-	if (!buffers[fd])
-		buffers[fd] = ft_strdup("");
-	buffers[fd] = read_to_buffer(fd, buffers[fd]);
-	if (!buffers[fd] || buffers[fd][0] == '\0')
+	if (!buffer)
+		buffer = ft_strdup("");
+	buffer = read_to_buffer(fd, buffer);
+	if (!buffer || buffer[0] == '\0')
 	{
-		free(buffers[fd]);
-		buffers[fd] = NULL;
+		free(buffer);
+		buffer = NULL;
 		return (NULL);
 	}
-	line = extract_line(buffers[fd]);
-	buffers[fd] = cut_buffer(buffers[fd]);
+	line = extract_line(buffer);
+	buffer = cut_buffer(buffer);
 	return (line);
 }

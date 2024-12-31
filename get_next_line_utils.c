@@ -6,11 +6,11 @@
 /*   By: aysadeq <aysadeq@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 09:31:19 by aysadeq           #+#    #+#             */
-/*   Updated: 2024/12/31 11:21:11 by aysadeq          ###   ########.fr       */
+/*   Updated: 2024/12/31 11:00:48 by aysadeq          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
